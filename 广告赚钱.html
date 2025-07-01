@@ -507,7 +507,7 @@
                 localStorage.setItem('watchCount', 0);
             }
 
-            if (watchCount >= 50) {
+            if (watchCount >= 10000) {
                 showNotification('已达上限', '今日广告观看次数已满，请明日再来！', 'warning');
                 return false;
             }
