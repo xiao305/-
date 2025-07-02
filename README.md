@@ -1,1 +1,615 @@
-# xiao305.github.io/ggzq/
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广告赚钱平台 - 轻松看广告赚现金</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            background: rgba(67, 97, 238, 0.1);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+        .wallet-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .wallet-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .wallet-header i {
+            font-size: 2rem;
+            color: var(--success);
+        }
+        .wallet-header h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+        .balance {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .withdraw-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            width: 100%;
+            max-width: 300px;
+            margin-top: 15px;
+        }
+        .withdraw-btn:disabled {
+            background: var(--gray);
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        .withdraw-btn:hover:not(:disabled) {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.4);
+        }
+        .withdraw-info {
+            margin-top: 20px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        .ads-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .section-title i {
+            font-size: 1.8rem;
+            color: var(--warning);
+        }
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+        .ads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .ad-card {
+            background: var(--light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid #e9ecef;
+        }
+        .ad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+        .ad-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        .ad-content {
+            padding: 20px;
+        }
+        .ad-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .ad-desc {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .ad-reward {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .reward-amount {
+            font-weight: 700;
+            color: var(--success);
+            font-size: 1.3rem;
+        }
+        .watch-btn {
+            background: var(--warning);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        .watch-btn:hover {
+            background: #d21e6d;
+            transform: translateY(-2px);
+        }
+        .instructions {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-top: 40px;
+        }
+        .instructions h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            counter-reset: step-counter;
+        }
+        .step {
+            position: relative;
+            padding-left: 70px;
+        }
+        .step::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .step p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        .disclaimer {
+            margin-top: 40px;
+            padding: 25px;
+            background: #fff8e1;
+            border-radius: var(--border-radius);
+            border-left: 4px solid #ffc107;
+        }
+        .disclaimer h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #e65100;
+        }
+        .disclaimer p {
+            color: #5d4037;
+            line-height: 1.7;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transform: translateX(120%);
+            transition: transform 0.4s ease;
+            z-index: 1000;
+            max-width: 350px;
+            border-left: 4px solid var(--success);
+        }
+        .notification.show {
+            transform: translateX(0);
+        }
+        .notification.success {
+            border-left-color: var(--success);
+        }
+        .notification.warning {
+            border-left-color: var(--warning);
+        }
+        .notification h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .notification p {
+            color: var(--gray);
+        }
+        footer {
+            text-align: center;
+            padding: 40px 0 20px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .form-label {
+            display: block;
+            margin: 15px 0 8px;
+            font-weight: 600;
+        }
+        .form-select, .form-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .withdraw-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 20px;
+        }
+        .history-link {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-ad"></i>
+                <h1>广告赚钱平台</h1>
+            </div>
+            <p class="subtitle">观看精选广告，轻松赚取现金奖励！每日观看广告次数无限制，满10元即可申请提现到微信或支付宝。</p>
+        </header>
+        <div class="dashboard">
+            <div class="wallet-card">
+                <div class="wallet-header">
+                    <i class="fas fa-wallet"></i>
+                    <h2>我的钱包</h2>
+                </div>
+                <div class="balance">¥<span id="balance">0.00</span></div>
+                <button id="withdrawBtn" class="withdraw-btn" disabled>申请提现</button>
+                <p class="withdraw-info">提现门槛：¥10.00（满额可提现）</p>
+                <div class="withdraw-form" id="withdrawForm" style="display: none;">
+                    <label for="paymentMethod" class="form-label">选择收款方式：</label>
+                    <select id="paymentMethod" class="form-select">
+                        <option value="alipay">支付宝</option>
+                        <option value="wechat">微信</option>
+                    </select>
+                    <label for="accountNumber" class="form-label">输入收款账户：</label>
+                    <input type="text" id="accountNumber" class="form-input" placeholder="请输入支付宝/微信绑定手机号或邮箱">
+                    <button onclick="submitWithdraw()" class="withdraw-btn" style="margin-top: 15px;">确认提现</button>
+                </div>
+                <div class="history-link" onclick="showWithdrawHistory()">查看提现记录</div>
+            </div>
+            <div class="ads-container">
+                <div class="section-title">
+                    <i class="fas fa-bullhorn"></i>
+                    <h2>精选广告</h2>
+                </div>
+                <div class="ads-grid" id="adsGrid">
+                    <div class="ad-card">
+                        <div class="ad-image" style="background-color: #4cc9f0;"></div>
+                        <div class="ad-content">
+                            <h3 class="ad-title">新款智能手机体验</h3>
+                            <p class="ad-desc">探索最新旗舰手机，体验前所未有的摄影技术和性能表现。</p>
+                            <div class="ad-reward">
+                                <div class="reward-amount">¥0.15 - ¥0.35</div>
+                                <button class="watch-btn" data-reward-min="0.15" data-reward-max="0.35">观看广告</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ad-card">
+                        <div class="ad-image" style="background-color: #f72585;"></div>
+                        <div class="ad-content">
+                            <h3 class="ad-title">在线教育平台</h3>
+                            <p class="ad-desc">发现学习新方式，海量课程任意选择，提升你的职业技能。</p>
+                            <div class="ad-reward">
+                                <div class="reward-amount">¥0.20 - ¥0.40</div>
+                                <button class="watch-btn" data-reward-min="0.20" data-reward-max="0.40">观看广告</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ad-card">
+                        <div class="ad-image" style="background-color: #4361ee;"></div>
+                        <div class="ad-content">
+                            <h3 class="ad-title">旅行度假套餐</h3>
+                            <p class="ad-desc">探索世界各地的奇妙目的地，享受超值度假套餐优惠。</p>
+                            <div class="ad-reward">
+                                <div class="reward-amount">¥0.25 - ¥0.45</div>
+                                <button class="watch-btn" data-reward-min="0.25" data-reward-max="0.45">观看广告</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="instructions">
+            <h2>如何开始赚钱</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>观看广告</h3>
+                    <p>点击任意广告卡片上的"观看广告"按钮，观看完整广告内容。</p>
+                </div>
+                <div class="step">
+                    <h3>获取奖励</h3>
+                    <p>完成观看后，随机金额的现金奖励将自动添加到您的钱包。</p>
+                </div>
+                <div class="step">
+                    <h3>累积收益</h3>
+                    <p>每日观看广告次数无限制，收益会不断累积在您的账户中。</p>
+                </div>
+                <div class="step">
+                    <h3>申请提现</h3>
+                    <p>当账户余额达到10元或以上时，即可申请提现到微信或支付宝。</p>
+                </div>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <h3><i class="fas fa-exclamation-triangle"></i> 重要提示</h3>
+            <p>本平台为功能演示原型，使用浏览器本地存储技术保存您的收益数据。实际运营平台需要接入真实广告联盟并处理支付流程。请勿在此输入任何真实支付信息。</p>
+        </div>
+        <div id="notification" class="notification">
+            <h4 id="notificationTitle">奖励到账！</h4>
+            <p id="notificationMessage">您已成功获得现金奖励。</p>
+        </div>
+        <div id="historyModal" class="notification" style="display:none;"></div>
+        <footer>
+            <p>© 2023 广告赚钱平台 - 本演示仅用于功能验证</p>
+            <p>实际收益取决于广告主投放预算，平台保留最终解释权</p>
+        </footer>
+    </div>
+    <script>
+        let balance = localStorage.getItem('adBalance') ? parseFloat(localStorage.getItem('adBalance')) : 0;
+        document.getElementById('balance').textContent = balance.toFixed(2);
+        updateWithdrawButton();
+
+        const adsData = [
+            { title: "新款智能手机体验", desc: "探索最新旗舰手机，体验前所未有的摄影技术和性能表现。", rewardMin: 0.15, rewardMax: 0.35, color: "#4cc9f0" },
+            { title: "在线教育平台", desc: "发现学习新方式，海量课程任意选择，提升你的职业技能。", rewardMin: 0.20, rewardMax: 0.40, color: "#f72585" },
+            { title: "旅行度假套餐", desc: "探索世界各地的奇妙目的地，享受超值度假套餐优惠。", rewardMin: 0.25, rewardMax: 0.45, color: "#4361ee" }
+        ];
+
+        function renderAds() {
+            const grid = document.getElementById('adsGrid');
+            grid.innerHTML = '';
+            adsData.forEach(ad => {
+                grid.innerHTML += `
+                    <div class="ad-card">
+                        <div class="ad-image" style="background-color: ${ad.color};"></div>
+                        <div class="ad-content">
+                            <h3 class="ad-title">${ad.title}</h3>
+                            <p class="ad-desc">${ad.desc}</p>
+                            <div class="ad-reward">
+                                <div class="reward-amount">¥${ad.rewardMin} - ¥${ad.rewardMax}</div>
+                                <button class="watch-btn" data-reward-min="${ad.rewardMin}" data-reward-max="${ad.rewardMax}">观看广告</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.querySelectorAll('.watch-btn').forEach(button => {
+                button.addEventListener('click', handleWatchAd);
+            });
+        }
+
+        function checkDailyLimit() {
+            const today = new Date().toISOString().split('T')[0];
+            const lastDate = localStorage.getItem('lastWatchDate');
+            let watchCount = parseInt(localStorage.getItem('watchCount')) || 0;
+
+            if (lastDate !== today) {
+                watchCount = 0;
+                localStorage.setItem('watchCount', 0);
+            }
+
+            if (watchCount >= 10000) {
+                showNotification('已达上限', '今日广告观看次数已满，请明日再来！', 'warning');
+                return false;
+            }
+
+            localStorage.setItem('lastWatchDate', today);
+            localStorage.setItem('watchCount', watchCount + 1);
+            return true;
+        }
+
+        function handleWatchAd(event) {
+            if (!checkDailyLimit()) return;
+            
+            const min = parseFloat(this.getAttribute('data-reward-min'));
+            const max = parseFloat(this.getAttribute('data-reward-max'));
+            const reward = Math.random() * (max - min) + min;
+            
+            balance += reward;
+            localStorage.setItem('adBalance', balance.toFixed(2));
+            document.getElementById('balance').textContent = balance.toFixed(2);
+            updateWithdrawButton();
+            showNotification(`恭喜！获得 ¥${reward.toFixed(2)}`, `观看广告成功，奖励已添加到钱包。`);
+        }
+
+        document.getElementById('withdrawBtn').addEventListener('click', function() {
+            if (balance >= 10) {
+                document.getElementById('withdrawForm').style.display = 'block';
+                this.disabled = true;
+            }
+        });
+
+        function submitWithdraw() {
+            const method = document.getElementById('paymentMethod').value;
+            const account = document.getElementById('accountNumber').value.trim();
+            
+            if (!account) {
+                showNotification('错误', '请输入收款账户信息！', 'warning');
+                return;
+            }
+            
+            const history = JSON.parse(localStorage.getItem('withdrawHistory') || '[]');
+            history.push({
+                time: new Date().toLocaleString(),
+                amount: balance.toFixed(2),
+                method: method,
+                account: account
+            });
+            localStorage.setItem('withdrawHistory', JSON.stringify(history));
+            
+            showNotification('提现申请已提交', 
+                `收款方式：${method.toUpperCase()}<br>账户：${account}<br>预计1-3个工作日到账。`, 'warning');
+            
+            balance = 0;
+            localStorage.setItem('adBalance', '0');
+            document.getElementById('balance').textContent = '0.00';
+            updateWithdrawButton();
+            document.getElementById('withdrawForm').style.display = 'none';
+        }
+
+        function updateWithdrawButton() {
+            const button = document.getElementById('withdrawBtn');
+            if (balance >= 10) {
+                button.disabled = false;
+                button.textContent = `提现 ¥${balance.toFixed(2)}`;
+            } else {
+                button.disabled = true;
+                button.textContent = `还需 ¥${(10 - balance).toFixed(2)} 可提现`;
+            }
+        }
+
+        function showNotification(title, message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const titleEl = document.getElementById('notificationTitle');
+            const messageEl = document.getElementById('notificationMessage');
+            titleEl.textContent = title;
+            messageEl.innerHTML = message;
+            notification.className = 'notification';
+            notification.classList.add(type, 'show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        function showWithdrawHistory() {
+            const history = JSON.parse(localStorage.getItem('withdrawHistory') || '[]');
+            let html = '<h4>您的提现记录：</h4>';
+            if (history.length === 0) {
+                html += '<p>暂无记录</p>';
+            } else {
+                history.forEach(item => {
+                    html += `<div style="margin: 10px 0;">${item.time} | ¥${item.amount} | ${item.method.toUpperCase()}</div>`;
+                });
+            }
+            const modal = document.getElementById('historyModal');
+            modal.innerHTML = html;
+            modal.style.display = 'block';
+            modal.className = 'notification show warning';
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 5000);
+        }
+
+        window.onload = renderAds;
+    </script>
+</body>
+</html>
